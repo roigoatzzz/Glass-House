@@ -3,48 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Wallpaper Vault</title>
+    <title>Glass House // Archive</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        .img-card:hover img { transform: scale(1.05); }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .wallpaper-card img { transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+        .wallpaper-card:hover img { transform: scale(1.1); }
+        /* Smooth fade in for images */
+        .fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-zinc-900 text-white font-sans">
+<body class="text-zinc-200">
 
-    <!-- Header -->
-    <header class="p-10 text-center">
-        <h1 class="text-5xl font-bold tracking-tighter">THE VAULT</h1>
-        <p class="text-zinc-400 mt-2">Curated high-res backgrounds</p>
+    <!-- Minimal Nav -->
+    <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-widest uppercase">Glass House</h1>
+        <div id="stats" class="text-xs text-zinc-500 font-mono">LOADING_ARCHIVE...</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 px-6 text-center">
+        <h2 class="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-4">The Collection.</h2>
+        <p class="text-zinc-500 max-w-xl mx-auto">High-fidelity digital backdrops hosted on the edge of the cloud.</p>
     </header>
 
-    <!-- Gallery Container -->
-    <main id="gallery" class="max-w-7xl mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Wallpapers will be injected here -->
+    <!-- Gallery -->
+    <main id="gallery-container" class="max-w-[1600px] mx-auto px-6 pb-20">
+        <!-- Categories will be rendered here -->
     </main>
 
     <script>
-        async function loadWallpapers() {
-            const response = await fetch('wallpapers.json');
-            const categories = await response.json();
-            const gallery = document.getElementById('gallery');
-
-            categories.forEach(cat => {
-                cat.images.forEach(img => {
-                    const card = `
-                        <div class="img-card relative overflow-hidden rounded-xl bg-zinc-800 group">
-                            <img src="${img.url}" alt="${img.name}" class="w-full h-64 object-cover transition duration-500 loading="lazy"">
-                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                                <a href="${img.url}" target="_blank" download class="bg-white text-black px-4 py-2 rounded-full font-bold text-sm">Download</a>
+        async function init() {
+            try {
+                const response = await fetch('wallpapers.json');
+                const data = await response.json();
+                const container = document.getElementById('gallery-container');
+                const stats = document.getElementById('stats');
+                
+                let totalImages = 0;
+                
+                data.forEach(section => {
+                    totalImages += section.images.length;
+                    
+                    const sectionHtml = `
+                        <div class="mb-16">
+                            <h3 class="text-sm font-mono text-zinc-600 mb-8 tracking-[0.3em] uppercase underline decoration-zinc-800 underline-offset-8">/ ${section.category}</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                ${section.images.map(img => `
+                                    <div class="wallpaper-card relative group aspect-[16/10] overflow-hidden rounded-sm glass fade-in">
+                                        <img src="${img.url}" alt="${img.name}" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0" loading="lazy">
+                                        
+                                        <!-- Hover Overlay -->
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
+                                            <p class="text-sm font-medium mb-1">${img.name}</p>
+                                            <a href="${img.url}" target="_blank" download class="text-[10px] uppercase tracking-widest text-zinc-400 hover:text-white transition">Download Original</a>
+                                        </div>
+                                    </div>
+                                `).join('')}
                             </div>
-                            <div class="p-3 text-xs text-zinc-500 uppercase tracking-widest">${cat.category}</div>
                         </div>
                     `;
-                    gallery.innerHTML += card;
+                    container.innerHTML += sectionHtml;
                 });
-            });
+
+                stats.innerText = `STATUS_OK // ${totalImages}_FILES_DETECTED`;
+
+            } catch (err) {
+                console.error("Error loading gallery:", err);
+                document.getElementById('stats').innerText = "STATUS_ERROR_FETCH_FAILED";
+            }
         }
 
-        loadWallpapers();
+        init();
     </script>
 </body>
 </html>
