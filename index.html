@@ -1,69 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLASS HOUSE // ARCHIVE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
-        body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0a; color: #fff; }
-        .img-container { background: #111; position: relative; overflow: hidden; aspect-ratio: 16/9; }
-        .img-container img { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); filter: saturate(0.8) brightness(0.8); }
-        .img-container:hover img { transform: scale(1.08); filter: saturate(1.1) brightness(1.1); }
-        .glass-ui { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .card-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: opacity 0.3s ease; }
-        .img-container:hover .card-label { opacity: 1; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAULT — Curated Wallpapers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a08;
+    --surface: #111110;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e4da;
+    --muted: rgba(232,228,218,0.35);
+    --accent: #c8f542;
+    --accent-dim: rgba(200,245,66,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  #cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+    mix-blend-mode: difference;
+  }
+  #cursor.hovering { width: 36px; height: 36px; opacity: 0.5; }
+
+  #cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    opacity: 0.35;
+    mix-blend-mode: difference;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    padding: 2.5rem 3rem 1.75rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,10,8,0.94);
+    backdrop-filter: blur(16px);
+    gap: 2rem;
+  }
+
+  .header-left { display: flex; flex-direction: column; gap: 4px; }
+  .header-left .tagline { font-size: 9px; letter-spacing: 0.28em; color: var(--muted); text-transform: uppercase; }
+  .header-left .count { font-size: 12px; color: var(--accent); }
+
+  .wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.8rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-align: center;
+    color: var(--text);
+    user-select: none;
+  }
+  .wordmark span { color: var(--accent); }
+
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+
+  .filters { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    cursor: none;
+    transition: all 0.2s;
+    border-radius: 0;
+  }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+  .view-toggle { display: flex; border: 1px solid var(--border); }
+  .view-btn {
+    background: none; border: none;
+    color: var(--muted);
+    padding: 5px 12px;
+    cursor: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    transition: all 0.2s;
+    border-right: 1px solid var(--border);
+  }
+  .view-btn:last-child { border-right: none; }
+  .view-btn.active, .view-btn:hover { background: var(--accent-dim); color: var(--accent); }
+
+  .search-bar {
+    display: flex; align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem 0;
+    gap: 1rem;
+  }
+  .search-bar input {
+    background: none; border: none;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    outline: none;
+    width: 100%;
+    padding: 0.85rem 0;
+  }
+  .search-bar input::placeholder { color: var(--muted); }
+  .search-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .search-count { font-size: 10px; color: var(--muted); white-space: nowrap; }
+
+  main { padding: 2rem 3rem; min-height: 60vh; }
+
+  #gallery {
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #gallery.view-list { grid-template-columns: 1fr; gap: 1px; }
+  #gallery.view-masonry { columns: 3; column-gap: 3px; display: block; }
+
+  .img-card {
+    position: relative; overflow: hidden;
+    background: var(--surface);
+    cursor: none;
+    animation: fadeUp 0.45s ease forwards;
+    opacity: 0; transform: translateY(12px);
+  }
+
+  #gallery.view-masonry .img-card { break-inside: avoid; margin-bottom: 3px; display: block; }
+
+  .img-card img {
+    display: block; width: 100%;
+    object-fit: cover; height: 260px;
+    transition: transform 0.55s cubic-bezier(0.23,1,0.32,1), filter 0.4s ease;
+    filter: saturate(0.8) brightness(0.95);
+  }
+
+  #gallery.view-masonry .img-card img { height: auto; min-height: 140px; }
+  #gallery.view-list .img-card { display: flex; align-items: stretch; height: 90px; }
+  #gallery.view-list .img-card img { width: 150px; height: 100%; flex-shrink: 0; }
+
+  .img-card:hover img { transform: scale(1.05); filter: saturate(1.05) brightness(1); }
+
+  .card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex; flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.1rem 1.25rem;
+  }
+  #gallery.view-list .card-overlay {
+    position: relative; inset: auto; background: none; opacity: 1;
+    flex: 1; padding: 0 1.5rem;
+    flex-direction: row; align-items: center; justify-content: space-between;
+  }
+  .img-card:hover .card-overlay { opacity: 1; }
+
+  .card-info { display: flex; flex-direction: column; gap: 3px; }
+  .card-cat { font-size: 8px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); }
+  .card-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.06em; line-height: 1.1; color: #fff; }
+  #gallery.view-list .card-name { color: var(--text); font-size: 1rem; }
+  #gallery.view-list .card-cat { color: var(--muted); }
+
+  .card-actions { display: flex; gap: 6px; margin-top: 10px; }
+  #gallery.view-list .card-actions { margin-top: 0; }
+
+  .btn-dl, .btn-prev-lb {
+    font-family: 'DM Mono', monospace; font-size: 8px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 6px 13px; text-decoration: none;
+    cursor: none; border: none; transition: all 0.18s;
+    display: inline-block;
+  }
+  .btn-dl { background: var(--accent); color: #0a0a08; }
+  .btn-dl:hover { background: #d5fd58; }
+  .btn-prev-lb { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.18); }
+  .btn-prev-lb:hover { background: rgba(255,255,255,0.2); }
+  #gallery.view-list .btn-prev-lb { background: none; border: 1px solid var(--border); color: var(--text); }
+
+  .cat-header {
+    grid-column: 1 / -1;
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: 2.5rem 0 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .cat-header:first-child { border-top: none; padding-top: 0; }
+  .cat-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.12em; }
+  .cat-num { font-size: 9px; letter-spacing: 0.22em; color: var(--muted); }
+
+  #lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.97);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.28s ease;
+  }
+  #lightbox.open { opacity: 1; pointer-events: all; }
+  #lightbox img { max-width: 88vw; max-height: 82vh; object-fit: contain; display: block; }
+
+  .lb-meta { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap; }
+  .lb-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.1em; }
+  .lb-cat { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-top: 3px; }
+  .lb-dl {
+    display: inline-block; margin-top: 12px;
+    background: var(--accent); color: #0a0a08;
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 0.22em; padding: 8px 20px;
+    text-decoration: none; text-transform: uppercase; cursor: none;
+  }
+  .lb-close {
+    position: absolute; top: 2rem; right: 2rem;
+    background: none; border: 1px solid var(--border);
+    color: var(--text); font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.22em;
+    padding: 7px 15px; cursor: none;
+    text-transform: uppercase; transition: all 0.18s;
+  }
+  .lb-close:hover { border-color: var(--accent); color: var(--accent); }
+  .lb-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: none; border: 1px solid var(--border);
+    color: var(--text); font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    width: 46px; height: 46px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: none; transition: all 0.18s;
+  }
+  .lb-nav:hover { border-color: var(--accent); color: var(--accent); }
+  #lb-prev { left: 2rem; }
+  #lb-next { right: 2rem; }
+
+  .empty { grid-column: 1 / -1; text-align: center; padding: 5rem 2rem; color: var(--muted); }
+  .empty .big { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.04); margin-bottom: 1rem; }
+
+  .shimmer {
+    background: linear-gradient(90deg, var(--surface) 25%, rgba(255,255,255,0.035) 50%, var(--surface) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite;
+    height: 260px;
+  }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.75rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--muted); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    header { grid-template-columns: 1fr; text-align: center; padding: 1.75rem; gap: 1rem; }
+    .header-left { align-items: center; }
+    .header-right { align-items: center; }
+    .wordmark { font-size: 2.8rem; }
+    #gallery { grid-template-columns: repeat(2, 1fr); }
+    #gallery.view-masonry { columns: 2; }
+    main, .search-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+  @media (max-width: 520px) {
+    #gallery { grid-template-columns: 1fr; }
+    #gallery.view-masonry { columns: 1; }
+  }
+</style>
 </head>
 <body>
 
-    <nav class="glass-ui sticky top-0 z-50 px-8 py-5 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-            <span class="tracking-[0.3em] font-bold text-sm">GLASS HOUSE // v2.0</span>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<header>
+  <div class="header-left">
+    <span class="tagline">High-res curated backgrounds</span>
+    <span class="count" id="total-count">— loading</span>
+  </div>
+  <div class="wordmark">THE <span>VAULT</span></div>
+  <div class="header-right">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-cat="all">All</button>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid">▦ Grid</button>
+        <button class="view-btn" data-view="masonry">▧ Masonry</button>
+        <button class="view-btn" data-view="list">≡ List</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="search-bar">
+  <span class="search-label">Search</span>
+  <input type="text" id="search" placeholder="filter by name or category…" autocomplete="off" spellcheck="false">
+  <span class="search-count" id="search-count"></span>
+</div>
+
+<main>
+  <div id="gallery">
+    <div class="shimmer"></div><div class="shimmer"></div><div class="shimmer"></div>
+    <div class="shimmer"></div><div class="shimmer"></div><div class="shimmer"></div>
+  </div>
+</main>
+
+<footer>
+  <span>Glass House Archive</span>
+  <span>Click any image to preview · Arrow keys to navigate</span>
+  <span id="footer-count"></span>
+</footer>
+
+<div id="lightbox">
+  <button class="lb-nav" id="lb-prev">←</button>
+  <div style="text-align:center;">
+    <img id="lb-img" src="" alt="">
+    <div class="lb-meta">
+      <div class="lb-name" id="lb-name"></div>
+      <div class="lb-cat" id="lb-cat"></div>
+      <a id="lb-dl" class="lb-dl" href="#" target="_blank" download>↓ Download original</a>
+    </div>
+  </div>
+  <button class="lb-nav" id="lb-next">→</button>
+  <button class="lb-close" id="lb-close">✕ Close</button>
+</div>
+
+<script>
+  // Cursor
+  const cur = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  });
+  (function tick() {
+    rx += (mx - rx) * 0.1; ry += (my - ry) * 0.1;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(tick);
+  })();
+
+  function addHover(el) {
+    el.addEventListener('mouseenter', () => cur.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('hovering'));
+  }
+
+  // State
+  let all = [], filtered = [], activeFilter = 'all', activeView = 'grid', lbIdx = 0;
+
+  async function load() {
+    try {
+      const res = await fetch('wallpapers.json');
+      if (!res.ok) throw new Error();
+      const cats = await res.json();
+      cats.forEach(c => c.images.forEach(img => all.push({ name: img.name, url: img.url, category: c.category })));
+      buildFilters([...new Set(all.map(i => i.category))]);
+      filtered = [...all];
+      render();
+      updateCounts();
+    } catch {
+      document.getElementById('gallery').innerHTML = `<div class="empty"><div class="big">404</div><p>wallpapers.json not found — run organizer.py first.</p></div>`;
+    }
+  }
+
+  function buildFilters(cats) {
+    const c = document.getElementById('filters');
+    cats.forEach(cat => {
+      const b = document.createElement('button');
+      b.className = 'filter-btn'; b.dataset.cat = cat; b.textContent = cat;
+      c.appendChild(b); addHover(b);
+      b.addEventListener('click', () => { activeFilter = cat; c.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); b.classList.add('active'); applyFilters(); });
+    });
+    c.querySelector('[data-cat="all"]').addEventListener('click', () => { activeFilter = 'all'; c.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); c.querySelector('[data-cat="all"]').classList.add('active'); applyFilters(); });
+  }
+
+  function applyFilters() {
+    const q = document.getElementById('search').value.toLowerCase().trim();
+    filtered = all.filter(img => (activeFilter === 'all' || img.category === activeFilter) && (!q || img.name.toLowerCase().includes(q) || img.category.toLowerCase().includes(q)));
+    render(); updateCounts();
+  }
+
+  function updateCounts() {
+    document.getElementById('total-count').textContent = `${all.length} images`;
+    const shown = filtered.length;
+    document.getElementById('search-count').textContent = shown < all.length ? `${shown} shown` : '';
+    document.getElementById('footer-count').textContent = `${shown} results`;
+  }
+
+  function render() {
+    const g = document.getElementById('gallery');
+    g.className = activeView === 'list' ? 'view-list' : activeView === 'masonry' ? 'view-masonry' : '';
+
+    if (!filtered.length) { g.innerHTML = `<div class="empty"><div class="big">EMPTY</div><p>Nothing matches your search.</p></div>`; return; }
+    g.innerHTML = '';
+
+    if (activeView !== 'masonry') {
+      const groups = {};
+      filtered.forEach(img => { if (!groups[img.category]) groups[img.category] = []; groups[img.category].push(img); });
+      Object.entries(groups).forEach(([cat, imgs]) => {
+        const h = document.createElement('div'); h.className = 'cat-header';
+        h.innerHTML = `<span class="cat-title">${cat}</span><span class="cat-num">${imgs.length} files</span>`;
+        g.appendChild(h);
+        imgs.forEach((img, i) => g.appendChild(mkCard(img, filtered.indexOf(img), i)));
+      });
+    } else {
+      filtered.forEach((img, i) => g.appendChild(mkCard(img, i, i)));
+    }
+  }
+
+  function mkCard(img, gIdx, delay) {
+    const d = document.createElement('div');
+    d.className = 'img-card';
+    d.style.animationDelay = Math.min(delay, 18) * 35 + 'ms';
+    d.innerHTML = `
+      <img src="${img.url}" alt="${img.name}" loading="lazy">
+      <div class="card-overlay">
+        <div class="card-info">
+          <span class="card-cat">${img.category}</span>
+          <span class="card-name">${img.name}</span>
         </div>
-        <div id="counter" class="font-mono text-[10px] text-zinc-500">000 // FILES</div>
-    </nav>
+        <div class="card-actions">
+          <button class="btn-prev-lb" data-idx="${gIdx}">Preview</button>
+          <a class="btn-dl" href="${img.url}" target="_blank" download="${img.name}">↓ Get</a>
+        </div>
+      </div>`;
+    d.querySelector('.btn-prev-lb').addEventListener('click', e => { e.stopPropagation(); openLB(gIdx); });
+    d.addEventListener('click', e => { if (!e.target.closest('a')) openLB(gIdx); });
+    [d, ...d.querySelectorAll('a, button')].forEach(addHover);
+    return d;
+  }
 
-    <main id="main-grid" class="max-w-[1800px] mx-auto p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- Images injected here -->
-    </main>
+  // Lightbox
+  function openLB(idx) {
+    lbIdx = idx;
+    const img = filtered[idx];
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lb-img').src = img.url;
+    document.getElementById('lb-img').alt = img.name;
+    document.getElementById('lb-name').textContent = img.name;
+    document.getElementById('lb-cat').textContent = img.category;
+    document.getElementById('lb-dl').href = img.url;
+    document.getElementById('lb-dl').download = img.name;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => document.getElementById('lb-img').src = '', 300);
+  }
+  function navLB(d) { lbIdx = (lbIdx + d + filtered.length) % filtered.length; openLB(lbIdx); }
 
-    <script>
-        async function loadArchive() {
-            try {
-                const res = await fetch('wallpapers.json');
-                const data = await res.json();
-                const grid = document.getElementById('main-grid');
-                let count = 0;
+  document.getElementById('lb-close').addEventListener('click', closeLB);
+  document.getElementById('lb-prev').addEventListener('click', () => navLB(-1));
+  document.getElementById('lb-next').addEventListener('click', () => navLB(1));
+  document.getElementById('lightbox').addEventListener('click', e => { if (e.target === document.getElementById('lightbox')) closeLB(); });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') navLB(-1);
+    if (e.key === 'ArrowRight') navLB(1);
+  });
 
-                data.forEach(cat => {
-                    cat.images.forEach(img => {
-                        count++;
-                        const card = `
-                            <div class="group">
-                                <div class="img-container rounded-lg border border-zinc-800">
-                                    <img src="${img.url}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/111/333?text=Link+Broken'">
-                                    <div class="card-label">
-                                        <p class="text-xs font-bold truncate mb-2 uppercase tracking-tighter">${img.name}</p>
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-[9px] text-zinc-400 font-mono">${cat.category}</span>
-                                            <a href="${img.url}" target="_blank" class="text-[10px] bg-white text-black px-3 py-1 rounded-full font-bold hover:bg-zinc-200 transition">RAW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        grid.innerHTML += card;
-                    });
-                });
-                document.getElementById('counter').innerText = `${count.toString().padStart(3, '0')} // FILES_DETECTED`;
-            } catch (e) {
-                console.error("Archive fetch failed.");
-            }
-        }
-        loadArchive();
-    </script>
+  // View toggle
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    addHover(btn);
+    btn.addEventListener('click', () => {
+      activeView = btn.dataset.view;
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render();
+    });
+  });
+
+  // Search
+  let st;
+  document.getElementById('search').addEventListener('input', () => { clearTimeout(st); st = setTimeout(applyFilters, 160); });
+  addHover(document.getElementById('search'));
+
+  load();
+</script>
 </body>
 </html>

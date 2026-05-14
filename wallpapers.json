@@ -1,287 +1,428 @@
-[
+{
+  "generated_at": "2026-05-14T00:27:15Z",
+  "repo": "roigoatzzz/Glass-House",
+  "branch": "main",
+  "total_images": 65,
+  "categories": [
     {
-        "category": "ANIME",
-        "images": [
-            {
-                "name": "Anime Character",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/anime-character.png"
-            },
-            {
-                "name": "Anime Mountain ",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/anime-mountain-.png"
-            },
-            {
-                "name": "Ichigo Kurosaki 3840X2160 10567",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/ichigo-kurosaki-3840x2160-10567.png"
-            },
-            {
-                "name": "Ichigo Kurosaki 3840X2160 16578",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/ichigo-kurosaki-3840x2160-16578.jpg"
-            },
-            {
-                "name": "Itachi Uchiha The Villain Who Was Always The Hero No 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/itachi-uchiha-the-villain-who-was-always-the-hero-no-1920x1080.jpg"
-            },
-            {
-                "name": "Legendary Master Kakashi 5K Uf 1910X1075",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/legendary-master-kakashi-5k-uf-1910x1075.jpg"
-            },
-            {
-                "name": "Levi Ackerman 7680X4320 10449",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/levi-ackerman-7680x4320-10449.png"
-            },
-            {
-                "name": "Lucy Cyberpunk Edgerunners White And Dangerous Hx 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/lucy-cyberpunk-edgerunners-white-and-dangerous-hx-1920x1080.jpg"
-            },
-            {
-                "name": "Mikasa Ackerman 5120X2880 10463",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/mikasa-ackerman-5120x2880-10463.jpg"
-            },
-            {
-                "name": "Mikasa Ackerman 6000X4751 10471",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/mikasa-ackerman-6000x4751-10471.jpg"
-            },
-            {
-                "name": "Miku Flowers Dr",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/miku-flowers-dr.png"
-            },
-            {
-                "name": "Obito Uchiha Legacy Sa 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/obito-uchiha-legacy-sa-1920x1080.jpg"
-            },
-            {
-                "name": "Obito Uchiha The Ninja In The Mask Nq 1910X1075",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/obito-uchiha-the-ninja-in-the-mask-nq-1910x1075.jpg"
-            },
-            {
-                "name": "Piano Girl Suns",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/piano-girl-suns.png"
-            },
-            {
-                "name": "Roronoa Zoro Smoking I8 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/roronoa-zoro-smoking-i8-1920x1080.jpg"
-            },
-            {
-                "name": "Ryomen Sukuna King Of Curses Gq 1910X1075",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/ryomen-sukuna-king-of-curses-gq-1910x1075.jpg"
-            },
-            {
-                "name": "Statue Of God Solo 3840X2160 15282",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/statue-of-god-solo-3840x2160-15282.jpeg"
-            },
-            {
-                "name": "Sung Jinwoo Dark 3840X2160 21604",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/sung-jinwoo-dark-3840x2160-21604.jpg"
-            },
-            {
-                "name": "Suzume No Tojimari 4K 3T 1910X1075",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/suzume-no-tojimari-4k-3t-1910x1075.jpg"
-            },
-            {
-                "name": "Wallhaven 4Dpkqg",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/wallhaven-4dpkqg.jpg"
-            }
-        ]
+      "category": "ANIME",
+      "slug": "anime",
+      "images": [
+        {
+          "name": "Anime Character",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/anime-character.png",
+          "file": "anime-character.png",
+          "size": 2176240
+        },
+        {
+          "name": "Anime Mountain ",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/anime-mountain-.png",
+          "file": "anime-mountain-.png",
+          "size": 5054542
+        },
+        {
+          "name": "Ichigo Kurosaki 3840X2160 10567",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/ichigo-kurosaki-3840x2160-10567.png",
+          "file": "ichigo-kurosaki-3840x2160-10567.png",
+          "size": 1574857
+        },
+        {
+          "name": "Ichigo Kurosaki 3840X2160 16578",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/ichigo-kurosaki-3840x2160-16578.jpg",
+          "file": "ichigo-kurosaki-3840x2160-16578.jpg",
+          "size": 3205292
+        },
+        {
+          "name": "Itachi Uchiha The Villain Who Was Always The Hero No 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/itachi-uchiha-the-villain-who-was-always-the-hero-no-1920x1080.jpg",
+          "file": "itachi-uchiha-the-villain-who-was-always-the-hero-no-1920x1080.jpg",
+          "size": 947211
+        },
+        {
+          "name": "Legendary Master Kakashi 5K Uf 1910X1075",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/legendary-master-kakashi-5k-uf-1910x1075.jpg",
+          "file": "legendary-master-kakashi-5k-uf-1910x1075.jpg",
+          "size": 176355
+        },
+        {
+          "name": "Levi Ackerman 7680X4320 10449",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/levi-ackerman-7680x4320-10449.png",
+          "file": "levi-ackerman-7680x4320-10449.png",
+          "size": 1476161
+        },
+        {
+          "name": "Lucy Cyberpunk Edgerunners White And Dangerous Hx 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/lucy-cyberpunk-edgerunners-white-and-dangerous-hx-1920x1080.jpg",
+          "file": "lucy-cyberpunk-edgerunners-white-and-dangerous-hx-1920x1080.jpg",
+          "size": 496300
+        },
+        {
+          "name": "Mikasa Ackerman 5120X2880 10463",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/mikasa-ackerman-5120x2880-10463.jpg",
+          "file": "mikasa-ackerman-5120x2880-10463.jpg",
+          "size": 1667667
+        },
+        {
+          "name": "Mikasa Ackerman 6000X4751 10471",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/mikasa-ackerman-6000x4751-10471.jpg",
+          "file": "mikasa-ackerman-6000x4751-10471.jpg",
+          "size": 5894926
+        },
+        {
+          "name": "Miku Flowers Dr",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/miku-flowers-dr.png",
+          "file": "miku-flowers-dr.png",
+          "size": 3992879
+        },
+        {
+          "name": "Obito Uchiha Legacy Sa 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/obito-uchiha-legacy-sa-1920x1080.jpg",
+          "file": "obito-uchiha-legacy-sa-1920x1080.jpg",
+          "size": 395216
+        },
+        {
+          "name": "Obito Uchiha The Ninja In The Mask Nq 1910X1075",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/obito-uchiha-the-ninja-in-the-mask-nq-1910x1075.jpg",
+          "file": "obito-uchiha-the-ninja-in-the-mask-nq-1910x1075.jpg",
+          "size": 142065
+        },
+        {
+          "name": "Piano Girl Suns",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/piano-girl-suns.png",
+          "file": "piano-girl-suns.png",
+          "size": 3941929
+        },
+        {
+          "name": "Roronoa Zoro Smoking I8 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/roronoa-zoro-smoking-i8-1920x1080.jpg",
+          "file": "roronoa-zoro-smoking-i8-1920x1080.jpg",
+          "size": 159793
+        },
+        {
+          "name": "Ryomen Sukuna King Of Curses Gq 1910X1075",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/ryomen-sukuna-king-of-curses-gq-1910x1075.jpg",
+          "file": "ryomen-sukuna-king-of-curses-gq-1910x1075.jpg",
+          "size": 78270
+        },
+        {
+          "name": "Statue Of God Solo 3840X2160 15282",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/statue-of-god-solo-3840x2160-15282.jpeg",
+          "file": "statue-of-god-solo-3840x2160-15282.jpeg",
+          "size": 1567896
+        },
+        {
+          "name": "Sung Jinwoo Dark 3840X2160 21604",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/sung-jinwoo-dark-3840x2160-21604.jpg",
+          "file": "sung-jinwoo-dark-3840x2160-21604.jpg",
+          "size": 876701
+        },
+        {
+          "name": "Suzume No Tojimari 4K 3T 1910X1075",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/suzume-no-tojimari-4k-3t-1910x1075.jpg",
+          "file": "suzume-no-tojimari-4k-3t-1910x1075.jpg",
+          "size": 503667
+        },
+        {
+          "name": "Wallhaven 4Dpkqg",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/anime/wallhaven-4dpkqg.jpg",
+          "file": "wallhaven-4dpkqg.jpg",
+          "size": 473532
+        }
+      ]
     },
     {
-        "category": "CATPPUCCIN",
-        "images": [
-            {
-                "name": "Kurzgesagt Galaxy_3",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/Kurzgesagt-Galaxy_3.png"
-            },
-            {
-                "name": "Pixel Castle",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/pixel-castle.png"
-            },
-            {
-                "name": "Wallhaven 3Kxgm9",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-3kxgm9.png"
-            },
-            {
-                "name": "Wallhaven 3Kxgm9_Smoothed_Catppuccin",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-3kxgm9_smoothed_catppuccin.png"
-            },
-            {
-                "name": "Wallhaven D6J79O",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-d6j79o.png"
-            },
-            {
-                "name": "Wallhaven Qr3Mpq",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-qr3mpq.png"
-            }
-        ]
+      "category": "CATPPUCCIN",
+      "slug": "catppuccin",
+      "images": [
+        {
+          "name": "Kurzgesagt Galaxy 3",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/Kurzgesagt-Galaxy_3.png",
+          "file": "Kurzgesagt-Galaxy_3.png",
+          "size": 1654624
+        },
+        {
+          "name": "Pixel Castle",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/pixel-castle.png",
+          "file": "pixel-castle.png",
+          "size": 13534044
+        },
+        {
+          "name": "Wallhaven 3Kxgm9",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-3kxgm9.png",
+          "file": "wallhaven-3kxgm9.png",
+          "size": 2453686
+        },
+        {
+          "name": "Wallhaven 3Kxgm9 Smoothed Catppuccin",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-3kxgm9_smoothed_catppuccin.png",
+          "file": "wallhaven-3kxgm9_smoothed_catppuccin.png",
+          "size": 2745687
+        },
+        {
+          "name": "Wallhaven D6J79O",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-d6j79o.png",
+          "file": "wallhaven-d6j79o.png",
+          "size": 1509364
+        },
+        {
+          "name": "Wallhaven Qr3Mpq",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/catppuccin/wallhaven-qr3mpq.png",
+          "file": "wallhaven-qr3mpq.png",
+          "size": 44385
+        }
+      ]
     },
     {
-        "category": "GRUVBOX",
-        "images": [
-            {
-                "name": "Wallhaven 2Yvoj6_1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-2yvoj6_1920x1080.png"
-            },
-            {
-                "name": "Wallhaven 3Lyrvy_1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-3lyrvy_1920x1080.png"
-            },
-            {
-                "name": "Wallhaven 5Y5537_1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-5y5537_1920x1080.png"
-            },
-            {
-                "name": "Wallhaven 5Yd6D5",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-5yd6d5.png"
-            },
-            {
-                "name": "Wallhaven Powjmm",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-powjmm.jpg"
-            },
-            {
-                "name": "Wallhaven Powyee",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-powyee.png"
-            },
-            {
-                "name": "Wallhaven Qr3L7D",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-qr3l7d.png"
-            },
-            {
-                "name": "Wallhaven Qrjq8L",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-qrjq8l.png"
-            },
-            {
-                "name": "Wallhaven Qz8W55",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-qz8w55.png"
-            },
-            {
-                "name": "Wallhaven Xe8Wgd_1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-xe8wgd_1920x1080.png"
-            }
-        ]
+      "category": "GRUVBOX",
+      "slug": "gruvbox",
+      "images": [
+        {
+          "name": "Wallhaven 2Yvoj6 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-2yvoj6_1920x1080.png",
+          "file": "wallhaven-2yvoj6_1920x1080.png",
+          "size": 2401606
+        },
+        {
+          "name": "Wallhaven 3Lyrvy 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-3lyrvy_1920x1080.png",
+          "file": "wallhaven-3lyrvy_1920x1080.png",
+          "size": 542371
+        },
+        {
+          "name": "Wallhaven 5Y5537 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-5y5537_1920x1080.png",
+          "file": "wallhaven-5y5537_1920x1080.png",
+          "size": 539246
+        },
+        {
+          "name": "Wallhaven 5Yd6D5",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-5yd6d5.png",
+          "file": "wallhaven-5yd6d5.png",
+          "size": 128006
+        },
+        {
+          "name": "Wallhaven Powjmm",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-powjmm.jpg",
+          "file": "wallhaven-powjmm.jpg",
+          "size": 458890
+        },
+        {
+          "name": "Wallhaven Powyee",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-powyee.png",
+          "file": "wallhaven-powyee.png",
+          "size": 600715
+        },
+        {
+          "name": "Wallhaven Qr3L7D",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-qr3l7d.png",
+          "file": "wallhaven-qr3l7d.png",
+          "size": 241330
+        },
+        {
+          "name": "Wallhaven Qrjq8L",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-qrjq8l.png",
+          "file": "wallhaven-qrjq8l.png",
+          "size": 881798
+        },
+        {
+          "name": "Wallhaven Qz8W55",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-qz8w55.png",
+          "file": "wallhaven-qz8w55.png",
+          "size": 164330
+        },
+        {
+          "name": "Wallhaven Xe8Wgd 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/gruvbox/wallhaven-xe8wgd_1920x1080.png",
+          "file": "wallhaven-xe8wgd_1920x1080.png",
+          "size": 1870369
+        }
+      ]
     },
     {
-        "category": "MINIMAL",
-        "images": [
-            {
-                "name": "002",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/002.jpg"
-            },
-            {
-                "name": "066",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/066.jpg"
-            },
-            {
-                "name": "067",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/067.jpg"
-            },
-            {
-                "name": "074",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/074.jpg"
-            },
-            {
-                "name": "131",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/131.jpg"
-            },
-            {
-                "name": "137",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/137.jpg"
-            },
-            {
-                "name": "284",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/284.jpg"
-            },
-            {
-                "name": "380",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/380.jpg"
-            },
-            {
-                "name": "387",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/387.jpg"
-            },
-            {
-                "name": "389",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/389.jpg"
-            },
-            {
-                "name": "Alejagalesa Purple Bear",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/alejagalesa-purple-bear.jpg"
-            },
-            {
-                "name": "Altos Odyssey Balloon Over Blue Mountains",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/altos-odyssey-balloon-over-blue-mountains.jpg"
-            },
-            {
-                "name": "Altos Odyssey Palm Kicker",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/altos-odyssey-palm-kicker.jpg"
-            },
-            {
-                "name": "Gavryl Broken Structures",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/gavryl-broken-structures.jpg"
-            },
-            {
-                "name": "Mofghfgfgh Moon Mountain",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/mofghfgfgh-moon-mountain.png"
-            },
-            {
-                "name": "Ogarart Eagle Mountain Sunset Minimalist",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/OGARart-eagle-mountain-sunset-minimalist.jpg"
-            },
-            {
-                "name": "Olly Moss Firewatch Green",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/olly-moss-firewatch-green.png"
-            },
-            {
-                "name": "Olly Moss Firewatch Purple",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/olly-moss-firewatch-purple.jpg"
-            },
-            {
-                "name": "Rook Rip Mt Fuji",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/rook-rip-mt-fuji.png"
-            }
-        ]
+      "category": "MINIMAL",
+      "slug": "minimal",
+      "images": [
+        {
+          "name": "002",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/002.jpg",
+          "file": "002.jpg",
+          "size": 847958
+        },
+        {
+          "name": "066",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/066.jpg",
+          "file": "066.jpg",
+          "size": 148726
+        },
+        {
+          "name": "067",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/067.jpg",
+          "file": "067.jpg",
+          "size": 79004
+        },
+        {
+          "name": "074",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/074.jpg",
+          "file": "074.jpg",
+          "size": 138978
+        },
+        {
+          "name": "131",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/131.jpg",
+          "file": "131.jpg",
+          "size": 178008
+        },
+        {
+          "name": "137",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/137.jpg",
+          "file": "137.jpg",
+          "size": 114001
+        },
+        {
+          "name": "284",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/284.jpg",
+          "file": "284.jpg",
+          "size": 131678
+        },
+        {
+          "name": "380",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/380.jpg",
+          "file": "380.jpg",
+          "size": 134022
+        },
+        {
+          "name": "387",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/387.jpg",
+          "file": "387.jpg",
+          "size": 1277551
+        },
+        {
+          "name": "389",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/389.jpg",
+          "file": "389.jpg",
+          "size": 2367817
+        },
+        {
+          "name": "Ogarart Eagle Mountain Sunset Minimalist",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/OGARart-eagle-mountain-sunset-minimalist.jpg",
+          "file": "OGARart-eagle-mountain-sunset-minimalist.jpg",
+          "size": 111744
+        },
+        {
+          "name": "Alejagalesa Purple Bear",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/alejagalesa-purple-bear.jpg",
+          "file": "alejagalesa-purple-bear.jpg",
+          "size": 125947
+        },
+        {
+          "name": "Altos Odyssey Balloon Over Blue Mountains",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/altos-odyssey-balloon-over-blue-mountains.jpg",
+          "file": "altos-odyssey-balloon-over-blue-mountains.jpg",
+          "size": 98832
+        },
+        {
+          "name": "Altos Odyssey Palm Kicker",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/altos-odyssey-palm-kicker.jpg",
+          "file": "altos-odyssey-palm-kicker.jpg",
+          "size": 157181
+        },
+        {
+          "name": "Gavryl Broken Structures",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/gavryl-broken-structures.jpg",
+          "file": "gavryl-broken-structures.jpg",
+          "size": 123500
+        },
+        {
+          "name": "Mofghfgfgh Moon Mountain",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/mofghfgfgh-moon-mountain.png",
+          "file": "mofghfgfgh-moon-mountain.png",
+          "size": 1347880
+        },
+        {
+          "name": "Olly Moss Firewatch Green",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/olly-moss-firewatch-green.png",
+          "file": "olly-moss-firewatch-green.png",
+          "size": 1700094
+        },
+        {
+          "name": "Olly Moss Firewatch Purple",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/olly-moss-firewatch-purple.jpg",
+          "file": "olly-moss-firewatch-purple.jpg",
+          "size": 443031
+        },
+        {
+          "name": "Rook Rip Mt Fuji",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/minimal/rook-rip-mt-fuji.png",
+          "file": "rook-rip-mt-fuji.png",
+          "size": 1483204
+        }
+      ]
     },
     {
-        "category": "SPORTS",
-        "images": [
-            {
-                "name": "Cristiano Ronaldo Band 2026 D3",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/cristiano-ronaldo-band-2026-d3.jpg"
-            },
-            {
-                "name": "Kobe Bryant 2020 56 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/kobe-bryant-2020-56-1920x1080.jpg"
-            },
-            {
-                "name": "Kylian Mbappe 0F 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/kylian-mbappe-0f-1920x1080.jpg"
-            },
-            {
-                "name": "Kylian Mbappe New 0C 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/kylian-mbappe-new-0c-1920x1080.jpg"
-            },
-            {
-                "name": "Lebron James 15K Artwork Uw 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/lebron-james-15k-artwork-uw-1920x1080.jpg"
-            },
-            {
-                "name": "Lionel Messi And Cristiano Ronaldo Louis Vuitton 5K V8 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/lionel-messi-and-cristiano-ronaldo-louis-vuitton-5k-v8-1920x1080.jpg"
-            },
-            {
-                "name": "Magic On The Pitch Lionel Messi Tl 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/magic-on-the-pitch-lionel-messi-tl-1920x1080.jpg"
-            },
-            {
-                "name": "Michael Jordan 5K Ye 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/michael-jordan-5k-ye-1920x1080.jpg"
-            },
-            {
-                "name": "Nba 2K24 Kobe Bryant Mk 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/nba-2k24-kobe-bryant-mk-1920x1080.jpg"
-            },
-            {
-                "name": "Neymar 2021 Iy 1920X1080",
-                "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/neymar-2021-iy-1920x1080.jpg"
-            }
-        ]
+      "category": "SPORTS",
+      "slug": "sports",
+      "images": [
+        {
+          "name": "Cristiano Ronaldo Band 2026 D3",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/cristiano-ronaldo-band-2026-d3.jpg",
+          "file": "cristiano-ronaldo-band-2026-d3.jpg",
+          "size": 6236329
+        },
+        {
+          "name": "Kobe Bryant 2020 56 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/kobe-bryant-2020-56-1920x1080.jpg",
+          "file": "kobe-bryant-2020-56-1920x1080.jpg",
+          "size": 590057
+        },
+        {
+          "name": "Kylian Mbappe 0F 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/kylian-mbappe-0f-1920x1080.jpg",
+          "file": "kylian-mbappe-0f-1920x1080.jpg",
+          "size": 530358
+        },
+        {
+          "name": "Kylian Mbappe New 0C 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/kylian-mbappe-new-0c-1920x1080.jpg",
+          "file": "kylian-mbappe-new-0c-1920x1080.jpg",
+          "size": 733030
+        },
+        {
+          "name": "Lebron James 15K Artwork Uw 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/lebron-james-15k-artwork-uw-1920x1080.jpg",
+          "file": "lebron-james-15k-artwork-uw-1920x1080.jpg",
+          "size": 503813
+        },
+        {
+          "name": "Lionel Messi And Cristiano Ronaldo Louis Vuitton 5K V8 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/lionel-messi-and-cristiano-ronaldo-louis-vuitton-5k-v8-1920x1080.jpg",
+          "file": "lionel-messi-and-cristiano-ronaldo-louis-vuitton-5k-v8-1920x1080.jpg",
+          "size": 683325
+        },
+        {
+          "name": "Magic On The Pitch Lionel Messi Tl 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/magic-on-the-pitch-lionel-messi-tl-1920x1080.jpg",
+          "file": "magic-on-the-pitch-lionel-messi-tl-1920x1080.jpg",
+          "size": 358872
+        },
+        {
+          "name": "Michael Jordan 5K Ye 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/michael-jordan-5k-ye-1920x1080.jpg",
+          "file": "michael-jordan-5k-ye-1920x1080.jpg",
+          "size": 378021
+        },
+        {
+          "name": "Nba 2K24 Kobe Bryant Mk 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/nba-2k24-kobe-bryant-mk-1920x1080.jpg",
+          "file": "nba-2k24-kobe-bryant-mk-1920x1080.jpg",
+          "size": 845802
+        },
+        {
+          "name": "Neymar 2021 Iy 1920X1080",
+          "url": "https://raw.githubusercontent.com/roigoatzzz/Glass-House/main/sports/neymar-2021-iy-1920x1080.jpg",
+          "file": "neymar-2021-iy-1920x1080.jpg",
+          "size": 420537
+        }
+      ]
     }
-]
+  ]
+}
