@@ -3,81 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glass House // Archive</title>
+    <title>GLASS HOUSE // ARCHIVE</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .wallpaper-card img { transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
-        .wallpaper-card:hover img { transform: scale(1.1); }
-        /* Smooth fade in for images */
-        .fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+        body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0a; color: #fff; }
+        .img-container { background: #111; position: relative; overflow: hidden; aspect-ratio: 16/9; }
+        .img-container img { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); filter: saturate(0.8) brightness(0.8); }
+        .img-container:hover img { transform: scale(1.08); filter: saturate(1.1) brightness(1.1); }
+        .glass-ui { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .card-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: opacity 0.3s ease; }
+        .img-container:hover .card-label { opacity: 1; }
     </style>
 </head>
-<body class="text-zinc-200">
+<body>
 
-    <!-- Minimal Nav -->
-    <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold tracking-widest uppercase">Glass House</h1>
-        <div id="stats" class="text-xs text-zinc-500 font-mono">LOADING_ARCHIVE...</div>
+    <nav class="glass-ui sticky top-0 z-50 px-8 py-5 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <span class="tracking-[0.3em] font-bold text-sm">GLASS HOUSE // v2.0</span>
+        </div>
+        <div id="counter" class="font-mono text-[10px] text-zinc-500">000 // FILES</div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="py-20 px-6 text-center">
-        <h2 class="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-4">The Collection.</h2>
-        <p class="text-zinc-500 max-w-xl mx-auto">High-fidelity digital backdrops hosted on the edge of the cloud.</p>
-    </header>
-
-    <!-- Gallery -->
-    <main id="gallery-container" class="max-w-[1600px] mx-auto px-6 pb-20">
-        <!-- Categories will be rendered here -->
+    <main id="main-grid" class="max-w-[1800px] mx-auto p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Images injected here -->
     </main>
 
     <script>
-        async function init() {
+        async function loadArchive() {
             try {
-                const response = await fetch('wallpapers.json');
-                const data = await response.json();
-                const container = document.getElementById('gallery-container');
-                const stats = document.getElementById('stats');
-                
-                let totalImages = 0;
-                
-                data.forEach(section => {
-                    totalImages += section.images.length;
-                    
-                    const sectionHtml = `
-                        <div class="mb-16">
-                            <h3 class="text-sm font-mono text-zinc-600 mb-8 tracking-[0.3em] uppercase underline decoration-zinc-800 underline-offset-8">/ ${section.category}</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                ${section.images.map(img => `
-                                    <div class="wallpaper-card relative group aspect-[16/10] overflow-hidden rounded-sm glass fade-in">
-                                        <img src="${img.url}" alt="${img.name}" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0" loading="lazy">
-                                        
-                                        <!-- Hover Overlay -->
-                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end">
-                                            <p class="text-sm font-medium mb-1">${img.name}</p>
-                                            <a href="${img.url}" target="_blank" download class="text-[10px] uppercase tracking-widest text-zinc-400 hover:text-white transition">Download Original</a>
+                const res = await fetch('wallpapers.json');
+                const data = await res.json();
+                const grid = document.getElementById('main-grid');
+                let count = 0;
+
+                data.forEach(cat => {
+                    cat.images.forEach(img => {
+                        count++;
+                        const card = `
+                            <div class="group">
+                                <div class="img-container rounded-lg border border-zinc-800">
+                                    <img src="${img.url}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/111/333?text=Link+Broken'">
+                                    <div class="card-label">
+                                        <p class="text-xs font-bold truncate mb-2 uppercase tracking-tighter">${img.name}</p>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-[9px] text-zinc-400 font-mono">${cat.category}</span>
+                                            <a href="${img.url}" target="_blank" class="text-[10px] bg-white text-black px-3 py-1 rounded-full font-bold hover:bg-zinc-200 transition">RAW</a>
                                         </div>
                                     </div>
-                                `).join('')}
+                                </div>
                             </div>
-                        </div>
-                    `;
-                    container.innerHTML += sectionHtml;
+                        `;
+                        grid.innerHTML += card;
+                    });
                 });
-
-                stats.innerText = `STATUS_OK // ${totalImages}_FILES_DETECTED`;
-
-            } catch (err) {
-                console.error("Error loading gallery:", err);
-                document.getElementById('stats').innerText = "STATUS_ERROR_FETCH_FAILED";
+                document.getElementById('counter').innerText = `${count.toString().padStart(3, '0')} // FILES_DETECTED`;
+            } catch (e) {
+                console.error("Archive fetch failed.");
             }
         }
-
-        init();
+        loadArchive();
     </script>
 </body>
 </html>
