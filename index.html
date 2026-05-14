@@ -389,7 +389,8 @@
     try {
       const res = await fetch('wallpapers.json');
       if (!res.ok) throw new Error();
-      const cats = await res.json();
+      const data = await res.json();
+      const cats = Array.isArray(data) ? data : data.categories;
       cats.forEach(c => c.images.forEach(img => all.push({ name: img.name, url: img.url, category: c.category })));
       buildFilters([...new Set(all.map(i => i.category))]);
       filtered = [...all];
